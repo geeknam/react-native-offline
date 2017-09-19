@@ -34,7 +34,7 @@ function createNetworkMiddleware(
     if ({}.toString.call(actionTypes) !== '[object Array]')
       throw new Error('You should pass an array as actionTypes param');
 
-    const { isConnected, actionQueue } = getState().network;
+    const { isConnected, actionQueue } = getState().get('network');
 
     const isObjectAndMatchCondition =
       typeof action === 'object' &&

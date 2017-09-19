@@ -80,7 +80,7 @@ const withNetworkConnectivity = (
         typeof store.dispatch === 'function' &&
         withRedux === true
       ) {
-        const actionQueue = store.getState().network.actionQueue;
+        const actionQueue = store.getState().get('network').actionQueue;
         store.dispatch(connectionChange(isConnected));
         // dispatching queued actions in order of arrival (if we have any)
         if (isConnected && actionQueue.length > 0) {
